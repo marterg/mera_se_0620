@@ -6,6 +6,7 @@ import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Student {
+
     private String name;
     private Set<Lection> personalSchedule = new HashSet<>();
 
@@ -29,38 +30,11 @@ public class Student {
         this.personalSchedule = schedule;
     }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "name='" + name + '\'' +
-                ", personalSchedule=" + personalSchedule +
-                '}' + "\n";
-    }
-
     public void addLectionToSchedule(Lection lection) {
         personalSchedule.add(lection);
     }
 
-    @Override
-    public boolean equals(Object o) {
-
-        if (this == o) return true;
-        if (!(o instanceof Student)) return false;
-        Student student = (Student) o;
-        return Objects.equals(name, student.name) &&
-                Objects.equals(personalSchedule, student.personalSchedule);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, personalSchedule);
-    }
-
     public void fillPersonalSchedule(Set<Lection> generalSchedule) {
-        if (generalSchedule == null) {
-            return;
-        }
-
         int maxNum = generalSchedule.size();
         int min = 10;
         int numLections = 0;
@@ -78,5 +52,13 @@ public class Student {
     public Lection chooseRandomLection(Set<Lection> schedule) {
         Lection[] array = schedule.toArray(new Lection[schedule.size()]);
         return array[ThreadLocalRandom.current().nextInt(array.length)];
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "studentName='" + name + '\'' +
+                ", LectureList=" + personalSchedule +
+                '}';
     }
 }

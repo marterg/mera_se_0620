@@ -11,20 +11,27 @@ public class Main {
         mySchedule = fillWeekSchedule(date);
         mySchedule.addAll(fillWeekSchedule(date.plusDays(7)));
 
+        public static final String MATH = "матанализ";
+        public static final String PHILOSOPHY = "философия";
+        public static final String ENGLISH = "английский язык";
+        public static final String HISTORY = "история";
+        public static final String SPORT = "физкультура";
+
         List<Student> students = new ArrayList<>();
-        Student Tom = new Student("Студент1");
-        Student Fedor = new Student("Студент2");
-        Student Denis = new Student("Студент3");
-        Student Electronic = new Student("Студент4");
-        Student Vasechkin = new Student("Студент5");
-        Student Peppy = new Student("Студент6");
-        Student Alice = new Student("Студент7");
-        Student Vasya = new Student("Студент8");
-        Student Vitya = new Student("Студент9");
-        Student Lusya= new Student("Студент10");
+        Student student1 = new Student("Студент1");
+        Student student2 = new Student("Студент2");
+        Student student3 = new Student("Студент3");
+        Student student4 = new Student("Студент4");
+        Student student5 = new Student("Студент5");
+        Student student6 = new Student("Студент6");
+        Student student7 = new Student("Студент7");
+        Student student8 = new Student("Студент8");
+        Student student9 = new Student("Студент9");
+        Student student10= new Student("Студент10");
 
-        students = Arrays.asList(Студент1, Студент2, Студент3, Студент4, Студент5, Студент6, Студент7, Студент8, Студент9, Студент10);
-
+        for (int i = 1; i <= 10; i++) {
+            students.add(new Student(studentName));
+        }
         System.out.println("Расписание каждого студента");
         Set<Lection> finalMySchedule = mySchedule;
         students.forEach(student -> {
@@ -34,12 +41,15 @@ public class Main {
 
         VisitStatistics statistics = new VisitStatistics(mySchedule, students);
 
-        List<Student> tempList = statistics.atLeastOnceVisited(Lection.MATH);
-        tempList.forEach(student->System.out.println("Список студентов, которые хоть раз посещали матанализ:\n" + student.getName()));
+        System.out.println("Список студентов, которые хоть раз посещали матанализ:\n");
+        students.stream()
+                .filter(student -> student.getSchedule().stream()
+                        .anyMatch(lecture -> lecture.getName().equals(MATH)))
+                .forEach(student -> System.out.println(student.getStudentName()));
 
-        System.out.println("Статистика посещений в формате \"Имя - количество посещенных лекций\"");
-        Map<String, Integer> tempMap = statistics.createMapWithNumberOfVisitedLections();
-        tempMap.entrySet().forEach(System.out::println);
+        System.out.println("Статистика посещений в формате: Имя - количество посещенных лекций");
+        students.forEach(student ->
+                System.out.println(student.getStudentName() + " посетил лекций " + student.getSchedule().size()));
 
         System.out.println("Название дисциплин, имеющих наибольшее количество посещений:\n");
         List<String> popularCourses = statistics.findTheMostPopularCourses();

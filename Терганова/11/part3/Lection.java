@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class Lection {
+
     public static final String MATH = "матанализ";
     public static final String PHILOSOPHY = "философия";
     public static final String ENGLISH = "английский язык";
@@ -40,19 +41,5 @@ public class Lection {
                 "name='" + name + '\'' +
                 ", date=" + date +
                 '}' + "\n";
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Lection)) return false;
-        Lection lection = (Lection) o;
-        return Objects.equals(name, lection.name) &&
-                Objects.equals(date, lection.date);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, date);
     }
 }
