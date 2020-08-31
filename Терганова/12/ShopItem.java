@@ -9,17 +9,17 @@ import static java.util.stream.Collectors.toMap;
 
 public class ShopItem {
     public static final int ID_LENGTH = 25;
-    public static final Map<String, String> MAP_TITLE_CATEGORY;
-    public static final Map<String, Double> MAP_TITLE_PRICE;
+    public static final Map<String, String> CATEGORY;
+    public static final Map<String, Double> PRICE;
     static {
         String[][] array = {{"рис", "греча", "сок", "лимонад", "макароны",
                 "творог", "кефир", "йод", "зеленка", "телевизор"},
                 {"крупы", "напитки", "молочка", "макароны", "крупы", "макароны", "молочка", "аптека", "молочка", "телевизор"}};
         Double[] price = {15.0, 30.0, 45.09, 60.99, 75.0, 90.50, 999.0, 6.0, 69.0, 1555.0};
-        MAP_TITLE_CATEGORY  = IntStream.range(0, array[0].length)
+        CATEGORY  = IntStream.range(0, array[0].length)
                 .boxed()
                 .collect(toMap(i -> array[0][i], i -> array[1][i]));
-        MAP_TITLE_PRICE = IntStream.range(0, price.length)
+        PRICE = IntStream.range(0, price.length)
                 .boxed()
                 .collect(toMap(i -> array[0][i], i -> price[i]));
     }
