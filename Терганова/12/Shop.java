@@ -19,11 +19,11 @@ public class Shop {
 
     public Shop() {
         goods = new ArrayList<>();
-        for (Map.Entry<String, String> entry : ShopItem.MAP_TITLE_CATEGORY.entrySet()) {
+        for (Map.Entry<String, String> entry : ShopItem.CATEGORY.entrySet()) {
             String title = entry.getKey();
             String category = entry.getValue();
             String id = RandomStringUtils.randomAlphanumeric(ShopItem.ID_LENGTH);
-            double price = ShopItem.MAP_TITLE_PRICE.get(title);
+            double price = ShopItem.PRICE.get(title);
             int quantity = ThreadLocalRandom.current().nextInt(100);
             goods.add(new ShopItem(category, price, title, quantity,id));
         }
