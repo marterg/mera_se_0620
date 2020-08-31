@@ -24,15 +24,15 @@ public class HomeWork8 {
         Person[] notIvanov = new Person[2];
         notIvanov[0] = new Person();
         notIvanov[0].setFirstName("Николай");
-        notIvanov[0].setParentName("Николаич");
-        notIvanov[0].setSecondName("Петров");
+        notIvanov[0].setParentName("Николаевичч");
+        notIvanov[0].setSecondName("Николаев");
         notIvanov[0].setAge(27);
         notIvanov[0].setHasFamily(true);
 
         notIvanov[1] = new Person();
         notIvanov[1].setFirstName("Семён");
-        notIvanov[1].setParentName("Семёныч");
-        notIvanov[1].setSecondName("Никоноров");
+        notIvanov[1].setParentName("Семёнович");
+        notIvanov[1].setSecondName("Семенов");
         notIvanov[1].setAge(37);
         notIvanov[1].setHasFamily(true);
 

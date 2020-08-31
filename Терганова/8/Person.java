@@ -12,7 +12,7 @@ public class AnotherPerson {
     public boolean hasFamily;
 
     public AnotherPerson() {
-        this("Иван","Иваныч","Иванов", age:27, false);
+        this("Иван","Иванович","Иванов", age:27, false);
     }
 
     public AnotherPerson(String firstName, String parentName, String secondName, int age, boolean hasFamily) {
